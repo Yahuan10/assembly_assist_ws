@@ -1,0 +1,28 @@
+[0.492s] Invoking command in '/home/rick/Documents/MyProject/assembly_assist_ws/src/projection_node': PYTHONPATH=/home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/projection_node build --build-base /home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node/build install --record /home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node/install.log --single-version-externally-managed install_data
+[0.678s] running egg_info
+[0.678s] writing ../../build/projection_node/projection_node.egg-info/PKG-INFO
+[0.679s] writing dependency_links to ../../build/projection_node/projection_node.egg-info/dependency_links.txt
+[0.679s] writing entry points to ../../build/projection_node/projection_node.egg-info/entry_points.txt
+[0.679s] writing requirements to ../../build/projection_node/projection_node.egg-info/requires.txt
+[0.679s] writing top-level names to ../../build/projection_node/projection_node.egg-info/top_level.txt
+[0.681s] reading manifest file '../../build/projection_node/projection_node.egg-info/SOURCES.txt'
+[0.681s] writing manifest file '../../build/projection_node/projection_node.egg-info/SOURCES.txt'
+[0.681s] running build
+[0.681s] running build_py
+[0.681s] copying projection_node/projection_node.py -> /home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node/build/lib/projection_node
+[0.681s] copying projection_node/__init__.py -> /home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node/build/lib/projection_node
+[0.682s] running install
+[0.682s] running install_lib
+[0.682s] copying /home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node/build/lib/projection_node/projection_node.py -> /home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node/lib/python3.10/site-packages/projection_node
+[0.683s] copying /home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node/build/lib/projection_node/__init__.py -> /home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node/lib/python3.10/site-packages/projection_node
+[0.683s] byte-compiling /home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node/lib/python3.10/site-packages/projection_node/projection_node.py to projection_node.cpython-310.pyc
+[0.683s] byte-compiling /home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node/lib/python3.10/site-packages/projection_node/__init__.py to __init__.cpython-310.pyc
+[0.684s] running install_data
+[0.684s] copying resource/projection_node -> /home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node/share/ament_index/resource_index/packages
+[0.684s] copying package.xml -> /home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node/share/projection_node
+[0.684s] running install_egg_info
+[0.685s] Copying ../../build/projection_node/projection_node.egg-info to /home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node/lib/python3.10/site-packages/projection_node-0.0.2-py3.10.egg-info
+[0.686s] running install_scripts
+[0.701s] Installing projection_node script to /home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node/lib/projection_node
+[0.701s] writing list of installed files to '/home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node/install.log'
+[0.718s] Invoked command in '/home/rick/Documents/MyProject/assembly_assist_ws/src/projection_node' returned '0': PYTHONPATH=/home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/projection_node build --build-base /home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node/build install --record /home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node/install.log --single-version-externally-managed install_data

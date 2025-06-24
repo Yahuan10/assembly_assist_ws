@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+../../build/fake_camera_node/fake_camera_node.egg-info/PKG-INFO
+../../build/fake_camera_node/fake_camera_node.egg-info/SOURCES.txt
+../../build/fake_camera_node/fake_camera_node.egg-info/dependency_links.txt
+../../build/fake_camera_node/fake_camera_node.egg-info/entry_points.txt
+../../build/fake_camera_node/fake_camera_node.egg-info/requires.txt
+../../build/fake_camera_node/fake_camera_node.egg-info/top_level.txt
+../../build/fake_camera_node/fake_camera_node.egg-info/zip-safe
+fake_camera_node/__init__.py
+fake_camera_node/fake_camera_node.py
+resource/fake_camera_node

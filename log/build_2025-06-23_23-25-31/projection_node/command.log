@@ -1,0 +1,2 @@
+Invoking command in '/home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node': /usr/bin/cmake /home/rick/Documents/MyProject/assembly_assist_ws/src/projection_node -DCMAKE_INSTALL_PREFIX=/home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node
+Invoked command in '/home/rick/Documents/MyProject/assembly_assist_ws/build/projection_node' returned '1': /usr/bin/cmake /home/rick/Documents/MyProject/assembly_assist_ws/src/projection_node -DCMAKE_INSTALL_PREFIX=/home/rick/Documents/MyProject/assembly_assist_ws/install/projection_node

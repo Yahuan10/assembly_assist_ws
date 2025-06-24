@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+../../build/gesture_processor_node/gesture_processor_node.egg-info/PKG-INFO
+../../build/gesture_processor_node/gesture_processor_node.egg-info/SOURCES.txt
+../../build/gesture_processor_node/gesture_processor_node.egg-info/dependency_links.txt
+../../build/gesture_processor_node/gesture_processor_node.egg-info/entry_points.txt
+../../build/gesture_processor_node/gesture_processor_node.egg-info/requires.txt
+../../build/gesture_processor_node/gesture_processor_node.egg-info/top_level.txt
+../../build/gesture_processor_node/gesture_processor_node.egg-info/zip-safe
+gesture_processor_node/__init__.py
+gesture_processor_node/gesture_processor_node.py
+resource/gesture_processor_node

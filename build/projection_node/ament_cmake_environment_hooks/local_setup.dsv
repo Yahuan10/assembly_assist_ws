@@ -1,0 +1,3 @@
+source;share/projection_node/environment/ament_prefix_path.sh
+source;share/projection_node/environment/path.sh
+source;share/projection_node/environment/pythonpath.sh

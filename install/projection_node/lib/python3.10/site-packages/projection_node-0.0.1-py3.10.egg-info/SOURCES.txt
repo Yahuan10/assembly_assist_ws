@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+../../build/projection_node/projection_node.egg-info/PKG-INFO
+../../build/projection_node/projection_node.egg-info/SOURCES.txt
+../../build/projection_node/projection_node.egg-info/dependency_links.txt
+../../build/projection_node/projection_node.egg-info/entry_points.txt
+../../build/projection_node/projection_node.egg-info/requires.txt
+../../build/projection_node/projection_node.egg-info/top_level.txt
+../../build/projection_node/projection_node.egg-info/zip-safe
+projection_node/__init__.py
+projection_node/projection_node.py
+resource/projection_node

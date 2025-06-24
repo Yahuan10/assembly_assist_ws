@@ -118,8 +118,8 @@ System launch, workstation deployment, and continuous functional upgrades
 
 | Category            | Tools/Technologies             |
 | ------------------- | ------------------------------ |
-| Operating System    | Ubuntu 20.04 / 22.04           |
-| ROS Version         | ROS2 Foxy / Humble             |
+| Operating System    | Ubuntu 22.04                   |
+| ROS Version         | ROS2 Humble                    |
 | Camera Integration  | Basler Pylon SDK + OpenCV      |
 | Gesture Recognition | MediaPipe / PyTorch            |
 | Projection Display  | Python (Pygame) / Electron Web |

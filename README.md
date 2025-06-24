@@ -272,7 +272,57 @@ These steps can be loaded dynamically at runtime from a YAML or JSON file by the
   - Define workflows via YAML or JSON for flexible task expansion
 
 ---
+---
+## Launch Methods
 
+### Run `projection_node` Only (For Deployment)
+
+```bash
+ros2 launch launch/projection_fullscreen.launch.py
+```
+
+> Simulates a real projection using a full-screen Tkinter window. Press ESC to exit.
+
+---
+
+### Launch the Full System (Simulated Camera + Gesture Recognition + Projection)
+
+```bash
+ros2 launch launch/sim_full_with_projection.launch.py
+```
+
+---
+
+## Manual Testing Commands
+
+### Publish an Assembly Step Number:
+
+```bash
+ros2 topic pub -1 /assembly/step std_msgs/Int32 "data: 3"
+```
+
+### Simulate a Confirmation Gesture:
+
+```bash
+ros2 topic pub -1 /gesture/confirm std_msgs/Bool "data: true"
+```
+
+---
+
+## Install Dependencies
+
+```bash
+chmod +x install_dependencies.sh
+./install_dependencies.sh
+```
+
+## Recommendations
+
+- Use `sim_full_with_projection.launch.py` for development and debugging.
+- For actual deployment, use `projection_fullscreen.launch.py` with a real projector connected.
+- Keep each module focused on a single responsibility to ensure system stability.
+- 
+---
 ## Future Extensions
 
 - Add voice command or physical button as backup gesture confirmation

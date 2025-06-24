@@ -1,0 +1,3 @@
+[console_scripts]
+state_manager_node = state_manager_node.state_manager_node:main
+
