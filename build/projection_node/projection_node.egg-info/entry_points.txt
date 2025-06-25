@@ -1,3 +1,0 @@
-[console_scripts]
-projection_node = projection_node.projection_node:main
-

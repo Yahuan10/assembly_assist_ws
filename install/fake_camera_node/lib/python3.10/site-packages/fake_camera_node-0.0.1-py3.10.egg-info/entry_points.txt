@@ -1,3 +1,0 @@
-[console_scripts]
-fake_camera_node = fake_camera_node.fake_camera_node:main
-

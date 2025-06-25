@@ -1,3 +1,0 @@
-[console_scripts]
-gesture_processor_node = gesture_processor_node.gesture_processor_node:main
-
