@@ -3,7 +3,7 @@
   <name>gesture_processor_node</name>
   <version>0.0.1</version>
   <description>Hand gesture detection using MediaPipe</description>
-  <maintainer email="you@example.com">Your Name</maintainer>
+  <maintainer email="info.yahuan@gmail.com">Yahuan</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
