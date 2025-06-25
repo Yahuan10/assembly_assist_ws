@@ -1,0 +1,15 @@
+# ROS 2 build outputs
+build/
+install/
+log/
+logs/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code settings (optional, remove if you want to share settings)
+.vscode/
+
+# Local image instructions (usually large and not version-controlled)
+instructions/*.jpg
