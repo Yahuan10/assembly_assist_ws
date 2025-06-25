@@ -1,0 +1,114 @@
+# config/steps.yaml
+move_group: manipulator
+
+steps:
+  #── 等待人放好 Plate A
+  - name: wait_plate_a
+    projection_text: "请确认已放好底盘 Plate A"
+    pick_pose:
+      position: {x: 0.3, y:  0.0, z: 0.2}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    place_pose:
+      position: {x: 0.3, y:  0.0, z: 0.2}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    gripper: "open"          # 保持张开
+    gripper_delay: 0.5
+
+  #── 安装 4 个电机
+  - name: install_motor_1
+    projection_text: "请做✋确认安装电机 1"
+    pick_pose:
+      position: {x: 0.5, y:  0.2, z: 0.1}   # 电机 1 的料盘位
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    place_pose:
+      position: {x: 0.3, y:  0.1, z: 0.05}  # Plate A 上电机 1 的安装位
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    gripper: "close"
+    gripper_delay: 1.0
+
+  - name: install_motor_2
+    projection_text: "请做✋确认安装电机 2"
+    pick_pose:
+      position: {x: 0.5, y: -0.2, z: 0.1}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    place_pose:
+      position: {x: 0.3, y: -0.1, z: 0.05}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    gripper: "close"
+    gripper_delay: 1.0
+
+  - name: install_motor_3
+    projection_text: "请做✋确认安装电机 3"
+    pick_pose:
+      position: {x:-0.5, y:  0.2, z: 0.1}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    place_pose:
+      position: {x:-0.3, y:  0.1, z: 0.05}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    gripper: "close"
+    gripper_delay: 1.0
+
+  - name: install_motor_4
+    projection_text: "请做✋确认安装电机 4"
+    pick_pose:
+      position: {x:-0.5, y: -0.2, z: 0.1}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    place_pose:
+      position: {x:-0.3, y: -0.1, z: 0.05}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    gripper: "close"
+    gripper_delay: 1.0
+
+  #── 安装 PCB1 到 Plate A
+  - name: place_pcb1
+    projection_text: "请做✋确认放置 PCB 1 到 Plate A"
+    pick_pose:
+      position: {x: 0.4, y:  0.4, z: 0.1}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    place_pose:
+      position: {x: 0.3, y:  0.0, z: 0.15}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    gripper: "close"
+    gripper_delay: 1.0
+
+  #── 安装 PCB2 到 Plate B
+  - name: place_pcb2
+    projection_text: "请做✋确认放置 PCB 2 到 Plate B"
+    pick_pose:
+      position: {x: 0.4, y: -0.4, z: 0.1}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    place_pose:
+      position: {x: 0.3, y: -0.0, z: 0.15}
+    gripper: "close"
+    gripper_delay: 1.0
+
+  #── 安装电池到 Plate B
+  - name: place_battery
+    projection_text: "请做✋确认放置电池 到 Plate B"
+    pick_pose:
+      position: {x:-0.4, y:  0.4, z: 0.1}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+    place_pose:
+      position: {x: 0.3, y: -0.2, z: 0.15}
+    gripper: "close"
+    gripper_delay: 1.0
+
+  #── 组装延时（可选，用于固化胶水或给人准备）
+  - name: assembly_delay
+    projection_text: "组装中，请稍候…"
+    pick_pose:   # 只是占位，不动臂
+      position: {x: 0.3, y:  0.0, z: 0.2}
+    place_pose:
+      position: {x: 0.3, y:  0.0, z: 0.2}
+    gripper: "open"
+    gripper_delay: 5.0
+
+  #── 最后安装 PCB3 到 PCB2
+  - name: place_pcb3
+    projection_text: "请做✋确认安装 PCB 3 到 PCB 2"
+    pick_pose:
+      position: {x:-0.4, y: -0.4, z: 0.1}
+    place_pose:
+      position: {x: 0.3, y:-0.0, z: 0.2}
+    gripper: "close"
+    gripper_delay: 1.0
