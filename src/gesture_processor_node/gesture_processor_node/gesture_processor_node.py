@@ -5,6 +5,7 @@ from std_msgs.msg import Bool
 from cv_bridge import CvBridge
 import cv2
 import mediapipe as mp
+import time
 
 class GestureProcessorNode(Node):
     def __init__(self):
@@ -20,57 +21,39 @@ class GestureProcessorNode(Node):
         )
         self.mp_drawing = mp.solutions.drawing_utils
 
-        self.confirmed_frames = 0
-        self.required_confirm_frames = 5  # N consecutive frames
-        self.last_published = False
+        self.last_hand_time = time.time()
+        self.action_published = False      
 
-        self.get_logger().info("GestureProcessorNode with filter started.")
-
+        self.get_logger().info("GestureProcessorNode no-hand 2s trigger started.")
+        
     def image_callback(self, msg):
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
             rgb_image = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)
             results = self.mp_hands.process(rgb_image)
 
-            confirmed = False
-            hand_label = None
+            detected_hand = False
 
-            if results.multi_hand_landmarks and results.multi_handedness:
-                for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
-                    hand_label = handedness.classification[0].label
-                    if hand_label == 'Left':  # Only respond to left hand
-                        wrist = hand_landmarks.landmark[0]
-                        tips = [4, 8, 12, 16, 20]
-                        fingers_up = 0
-                        for idx in tips:
-                            tip = hand_landmarks.landmark[idx]
-                            if tip.y < wrist.y:
-                                fingers_up += 1
-                        if fingers_up >= 4:
-                            confirmed = True
+            if results.multi_hand_landmarks:
+                detected_hand = True
+                self.last_hand_time = time.time()
+                self.action_published = False
+
+                
+                for hand_landmarks in results.multi_hand_landmarks:
                     self.mp_drawing.draw_landmarks(cv_image, hand_landmarks, mp.solutions.hands.HAND_CONNECTIONS)
 
-            # Frame filtering
-            if confirmed:
-                self.confirmed_frames += 1
-            else:
-                self.confirmed_frames = 0
-
-            if self.confirmed_frames >= self.required_confirm_frames:
-                if not self.last_published:
+            
+            if not detected_hand:
+                if (time.time() - self.last_hand_time) > 2.0 and not self.action_published:
                     self.publisher.publish(Bool(data=True))
-                    self.get_logger().info("✋ Confirmed left hand gesture detected and published.")
-                    self.last_published = True
-            else:
-                if self.last_published:
-                    self.publisher.publish(Bool(data=False))
-                    self.get_logger().info("✋ Gesture lost. Publishing False.")
-                    self.last_published = False
+                    self.get_logger().info(" No hand for 2s, action triggered and published True!")
+                    self.action_published = True
 
-            cv2.putText(cv_image, f"Confirmed Frames: {self.confirmed_frames}", (10, 30),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0) if confirmed else (0, 0, 255), 2)
-            cv2.putText(cv_image, f"Hand: {hand_label}", (10, 60),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 1)
+           
+            cv2.putText(cv_image, 
+                        f"Last Hand: {int(time.time() - self.last_hand_time)}s ago", 
+                        (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,0) if detected_hand else (0,0,255), 2)
             cv2.imshow("Gesture Debug", cv_image)
             cv2.waitKey(1)
 
