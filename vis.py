@@ -11,9 +11,9 @@ win_name = "TCP Trajectory"
 # === Homography Matrix ===
 # This matrix maps real-world (x, y) in meters to image pixel coordinates
 H = np.array([
-    [7.35135136e+02, 0., 2.03448646e+02],
-    [0., 1.02857148e+03, 1.71085702e+02],
-    [0., 0., 1.00000000e+00]
+    [-944.336237, -87.4102614, -4.95230579],
+    [-62.4513781, 874.191558, 134.016380],
+    [-0.00962922264, -0.142556057, 1.00000000e+00]
 ])
 
 # === Robot Connection Setup ===
@@ -51,7 +51,7 @@ rb_arm_on_m = [
 rb_arm_on_m_pixels = [world_to_pixel(x, y) for x, y in rb_arm_on_m]
 xs, ys = zip(*rb_arm_on_m_pixels)
 top_left = (min(xs), min(ys))
-bottom_right = (max(xs), max(ys))
+bottom_right = (max(xs)+0,20, max(ys))
 
 # === List to store TCP trajectory points ===
 trajectory = []

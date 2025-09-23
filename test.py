@@ -27,7 +27,7 @@ POS_SCALE = 0.1                          # 世界坐标 → 像素的比例（�
 
 # ===== battery 外观：固定长宽比 =====
 ASPECT_WH = 2/3           # 宽:高 比例（例：2:3）
-BATTERY_HEIGHT_PX = 180   # 固定高度（像素）
+BATTERY_HEIGHT_PX = 200   # 固定高度（像素）
 BATTERY_WIDTH_PX  = int(BATTERY_HEIGHT_PX * ASPECT_WH)
 
 # ===== 计算 battery 中心像素坐标 =====
