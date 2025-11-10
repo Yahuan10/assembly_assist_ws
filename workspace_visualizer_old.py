@@ -83,7 +83,7 @@ FONT = cv2.FONT_HERSHEY_SIMPLEX
 ZONE_LAYOUT: Dict[str, Dict[str, Tuple[int, ...]]] = {
     "Battery": {"rect": (320, 90, 980, 230), "label": "Battery"},
     "Motor": {"rect": (100, 90, 300, 260), "label": "Motor"},
-    "Assembly": {"rect": (320, 360, 620, 540), "label": "Assembly"},
+    "Assembly": {"rect": (530, 540, 850, 655), "label": "Assembly"},
     "PCB2": {"rect": (320, 260, 620, 320), "label": "PCB2"},
     "PCB1": {"rect": (660, 260, 880, 320), "label": "PCB1"},
     "PCB3": {"rect": (100, 360, 280, 540), "label": "PCB3"},
@@ -212,6 +212,7 @@ class SchedulerVisualizer:
         self.show_home_zone: bool = bool(rospy.get_param("~show_home_zone", False))
         self.show_rb_region: bool = bool(rospy.get_param("~show_rb_region", False))
         self.show_state_path: bool = bool(rospy.get_param("~show_state_path", False))
+        self.show_next_state_path: bool = bool(rospy.get_param("~show_next_state_path", False))
         self._rb_region_rect: Optional[Tuple[int, int, int, int]] = self._compute_rb_region_rect()
 
         # Live TCP path tracking (tool0 real pose)
@@ -403,6 +404,10 @@ class SchedulerVisualizer:
         points = STATE_PATHS.get(current_state, [])
         if self.show_state_path and len(points) >= 2:
             self._draw_gradient_path(canvas, points)
+        if self.show_next_state_path and next_state:
+            nxt_points = STATE_PATHS.get(next_state, [])
+            if len(nxt_points) >= 2:
+                self._draw_next_state_path(canvas, nxt_points)
 
         # Draw planned and live TCP paths (if enabled)
         if self.show_planned_tcp_path:
@@ -425,6 +430,19 @@ class SchedulerVisualizer:
 
         cv2.circle(canvas, points[0], 6, (0, 0, 0), -1)
         cv2.circle(canvas, points[-1], 6, (0, 0, 0), -1)
+
+    @staticmethod
+    def _draw_next_state_path(canvas: np.ndarray, points: Sequence[Tuple[int, int]]) -> None:
+        color = (0, 165, 255)
+        for idx in range(len(points) - 1):
+            cv2.line(canvas, points[idx], points[idx + 1], color, 2, cv2.LINE_AA)
+
+        start = points[0]
+        end = points[-1]
+        cv2.circle(canvas, start, 5, color, 2, cv2.LINE_AA)
+        cv2.circle(canvas, end, 5, color, -1, cv2.LINE_AA)
+        label_pos = (min(start[0], end[0]) + 10, min(start[1], end[1]) - 10)
+        cv2.putText(canvas, "Next Path", label_pos, FONT, 0.45, color, 1, cv2.LINE_AA)
 
     def _draw_rb_region(self, canvas: np.ndarray) -> None:
         if not self.show_rb_region or not self._rb_region_rect:
