@@ -47,12 +47,13 @@ except ImportError:
 # Default homography (tcp_reader / vis scripts)
 DEFAULT_HOMOGRAPHY = np.array(
     [
-        [-944.336237, -87.4102614, -4.95230579],
-        [-62.4513781, 874.191558, 134.01638],
-        [-0.00962922264, -0.142556057, 1.0],
+        [-944.336237,   -87.4102614,   -4.95230579],
+        [ -62.4513781,  874.191558,   134.016380],
+        [  -0.00962922264,  -0.142556057,  1.00000000e+00]
     ],
     dtype=float,
 )
+
 
 # RB arm grid used in vis.py to visualize workspace; only XY needed.
 RB_ARM_GRID_WORLD = [
@@ -75,8 +76,8 @@ RB_ARM_GRID_WORLD = [
 ]
 
 # Canvas configuration
-CANVAS_WIDTH = 1280
-CANVAS_HEIGHT = 720
+CANVAS_WIDTH = 1024
+CANVAS_HEIGHT = 768
 FONT = cv2.FONT_HERSHEY_SIMPLEX
 
 # Zone layout: rectangles defined as (x1, y1, x2, y2)
